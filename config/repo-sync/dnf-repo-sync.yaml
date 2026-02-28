@@ -1,0 +1,63 @@
+dnf:
+  local_base_dir: ~/repos
+  rsync_options:
+  - --archive
+  - --hard-links
+  - --copy-links
+  - --verbose
+  - --partial
+  - --append-verify
+  - --timeout=300
+  - --contimeout=60
+  rsync_delete_options:
+  - --delete-after
+  retry_settings:
+    max_retries: 3
+    base_delay: 2.0
+    max_delay: 30.0
+    connection_delay: 1.0
+  repositories:
+  - name: rocky
+    rsync_url: msync.rockylinux.org::rocky-linux
+    versions:
+    - '8'
+    - '9'
+    - '10'
+    repos:
+      '8':
+      - BaseOS
+      - AppStream
+      - extras
+      - PowerTools
+      '9':
+      - BaseOS
+      - AppStream
+      - extras
+      - CRB
+      '10':
+      - BaseOS
+      - AppStream
+      - extras
+      - CRB
+    architectures:
+    - x86_64
+    sync_source: false
+    path_suffix: /os
+  - name: epel
+    rsync_url: archive.linux.duke.edu::fedora-epel
+    versions:
+    - '8'
+    - '9'
+    - '10'
+    repos:
+      '8':
+      - Everything
+      - Modular
+      '9':
+      - Everything
+      '10':
+      - Everything
+    architectures:
+    - x86_64
+    sync_source: false
+    path_suffix: ''
