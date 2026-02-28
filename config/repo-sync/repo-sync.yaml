@@ -1,0 +1,150 @@
+apt:
+  local_base_dir: /root/repos
+  rsync_options:
+  - --archive
+  - --verbose
+  - --partial
+  - --append-verify
+  - --timeout=300
+  - --contimeout=60
+  - --copy-links
+  rsync_delete_options: 
+  - --delete-after  
+  repositories:
+  - name: debian
+    rsync_url: rsync://ftp.us.debian.org/debian
+    suites:
+    - bookworm
+    - bookworm-updates
+    - bookworm-backports
+    - trixie
+    - trixie-updates
+    - trixie-backports
+    components:
+    - main
+    - contrib
+    - non-free
+    - non-free-firmware
+    architectures:
+    - amd64
+    - i386
+    - all
+    
+  - name: debian-archive
+    rsync_url: rsync.archive.debian.org::debian-archive/debian
+    suites:
+    - wheezy
+    - wheezy-updates
+    - wheezy-backports
+    - jessie
+    - jessie-updates
+    - jessie-backports
+    - stretch
+    - stretch-updates
+    - stretch-backports
+    - buster
+    - buster-updates
+    - buster-backports
+    - bullseye
+    - bullseye-updates
+    - bullseye-backports
+    components:
+    - main
+    - contrib
+    - non-free
+    architectures:
+    - amd64
+    - i386
+    - all
+    
+  - name: debian-security
+    rsync_url: rsync.security.debian.org::debian-security
+    suites:
+    - bookworm-security
+    - trixie-security
+    components:
+    - main
+    - contrib
+    - non-free
+    - non-free-firmware
+    architectures:
+    - amd64
+    - i386
+    - all
+    
+  - name: debian-archive-security
+    rsync_url: rsync.archive.debian.org::debian-archive/debian-security
+    suites:
+    - wheezy
+    - wheezy/updates
+    - jessie
+    - jessie/updates
+    - stretch
+    - stretch/updates
+    - buster
+    - buster/updates
+    - bullseye
+    - bullseye/updates
+    components:
+    - main
+    - contrib
+    - non-free
+    - non-free-firmware
+    architectures:
+    - amd64
+    - i386
+    - all
+
+  - name: ubuntu
+    rsync_url: rsync://archive.ubuntu.com/ubuntu
+    suites:
+    - jammy
+    - jammy-updates
+    - jammy-security
+    - jammy-backports
+    - focal
+    - focal-updates
+    - focal-security
+    - focal-backports
+    - noble
+    - noble-updates
+    - noble-security
+    - noble-backports
+    - bionic
+    - bionic-updates
+    - bionic-security
+    - bionic-backports
+    - plucky
+    - plucky-updates
+    - plucky-security
+    - plucky-backports
+    components:
+    - main
+    - restricted
+    - universe
+    - multiverse
+    architectures:
+    - amd64
+    - i386
+    - all
+    
+  - name: ubuntu-old-releases
+    rsync_url:  old-releases.ubuntu.com::old-releases/ubuntu 
+    suites:
+    - precise
+    - precise-updates
+    - precise-security
+    - precise-backports
+    - vivid
+    - vivid-updates
+    - vivid-security
+    - vivid-backports
+    components:
+    - main
+    - restricted
+    - universe
+    - multiverse
+    architectures:
+    - amd64
+    - i386
+    - all
