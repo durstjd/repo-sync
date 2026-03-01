@@ -34,13 +34,10 @@ apt:
     rsync_url: rsync.archive.debian.org::debian-archive/debian
     suites:
     - wheezy
-    - wheezy-updates
     - wheezy-backports
     - jessie
-    - jessie-updates
     - jessie-backports
     - stretch
-    - stretch-updates
     - stretch-backports
     - buster
     - buster-updates
@@ -75,16 +72,10 @@ apt:
   - name: debian-archive-security
     rsync_url: rsync.archive.debian.org::debian-archive/debian-security
     suites:
-    - wheezy
     - wheezy/updates
-    - jessie
     - jessie/updates
-    - stretch
     - stretch/updates
-    - buster
     - buster/updates
-    - bullseye
-    - bullseye/updates
     components:
     - main
     - contrib
